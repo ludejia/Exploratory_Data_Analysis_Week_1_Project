@@ -8,7 +8,7 @@ data$date_time = strptime(paste(data$Date, data$Time, sep = ' '),"%d/%m/%Y %H:%M
 #subset the data from the required date range
 data = subset(data,data$date_time >="2007-02-01" & data$date_time <"2007-02-03")
 
-#create plot1
+#create plot2
 plot(data$date_time, data$Global_active_power, type="l", 
      xlab='', ylab="Global Active Power (kilowatts)")
 
