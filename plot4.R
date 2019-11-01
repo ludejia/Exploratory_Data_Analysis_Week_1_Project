@@ -8,7 +8,9 @@ data$date_time = strptime(paste(data$Date, data$Time, sep = ' '),"%d/%m/%Y %H:%M
 #subset the data from the required date range
 data = subset(data,data$date_time >="2007-02-01" & data$date_time <"2007-02-03")
 
-#create plot3
+#create plot4
+
+png(file="plot4.png")
 par(mfrow=c(2,2))
 
 plot(data$date_time, data$Global_active_power, type="l", 
@@ -27,14 +29,12 @@ lines(data$date_time, data$Sub_metering_3, col='blue',
       xlab='')
 
 legend("topright", col = c('black','red','blue'), lty = 1, lwd = 2,
-       legend = c("Sub_metering_1", "Sub_metering_2", "Sub_metering_3"), bty='n',
-       cex = 0.1)
+       legend = c("Sub_metering_1", "Sub_metering_2", "Sub_metering_3"), bty='n')
 
 plot(data$date_time, data$Global_reactive_power, type="l", 
      xlab='datetime', ylab="Global Rreactive Power")
 
 
 #export png file
-dev.copy(png, file = "plot4.png")
 dev.off()
 
